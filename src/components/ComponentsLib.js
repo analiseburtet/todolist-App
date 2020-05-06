@@ -15,6 +15,11 @@ export const Button = styled.button`
 
 export const Container = styled.div`
   text-align: center;
+  ${props => props.main && css`
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+  `}
   ${props => props.row && css`
     display: flex;
     justify-content: flex-start;
