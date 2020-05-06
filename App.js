@@ -3,15 +3,19 @@ import { TouchableOpacity, StyleSheet, Image } from 'react-native'
 import { Container } from './src/components/ComponentsLib'
 import Header from './src/components/Header'
 import Modal from './src/components/Modal'
+import TaskList from './src/components/TaskList'
+import DoneList from './src/components/DoneList'
 
 export default function App() {
   return(
     <Container main>
       <Header/>
+      <TaskList/>
+      <DoneList/>
       <TouchableOpacity
         style={styles.TouchableOpacityStyle}>
         <Image
-          source={require('./assets/plus_icon.png')}
+          source={require('./assets/icon.png')}
           style={styles.FloatingButtonStyle}
         />
       </TouchableOpacity>    

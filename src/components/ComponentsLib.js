@@ -34,6 +34,7 @@ export const Container = styled.div`
     color: white;
     border-radius: 3px;
     padding: 14px;
+    margin: 12px;
   `}
 `
 
@@ -51,4 +52,9 @@ export const Title = styled.h1`
   text-align: center;
   color: palevioletred;
   padding-left: 12px;
+`;
+
+export const SubTitle = styled.h2`
+  font-size: 1em;
+  color: palevioletred;
 `;
