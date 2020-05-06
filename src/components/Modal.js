@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Container, Input } from './MyComponents'
+import { Button, Container, Input } from './ComponentsLib'
 
 const Modal = () => {
     return (

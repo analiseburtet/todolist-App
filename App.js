@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './src/components/MyComponents'
+import { Container } from './src/components/ComponentsLib'
 import Header from './src/components/Header'
 import Modal from './src/components/Modal'
 

@@ -1,16 +1,17 @@
 import React from 'react'
 import { Image, StyleSheet } from 'react-native'
-import { Container, Title, LogoImage } from './MyComponents'
+import { Container, Title, LogoImage } from './ComponentsLib'
 
 const Header = () => {
     return (
-        <Container>
+        <Container row>
             <Image
                 style={styles.logo}
                 source={require('../../assets/logo.png')}
             />
             <Title>TODO LIST</Title>
         </Container>
+
     )
 }
 
