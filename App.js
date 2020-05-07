@@ -1,32 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { TouchableOpacity, StyleSheet, Image } from 'react-native'
 import { Container } from './src/components/ComponentsLib'
 import Header from './src/components/Header'
-import Modal from './src/components/Modal'
+import ModalTask from './src/components/Modal'
 import TaskList from './src/components/TaskList'
 import DoneList from './src/components/DoneList'
 
 export default function App() {
+  const [ modalVisible, setModalVisible ] = useState(false)
   return(
     <Container main>
       <Header/>
       <TaskList/>
       <DoneList/>
       <TouchableOpacity
-        style={styles.TouchableOpacityStyle}>
+        style={styles.TouchableOpacityStyle}
+        onPress={() => setModalVisible(!modalVisible)}  
+      >
         <Image
-          source={require('./assets/icon.png')}
+          source={require('./assets/plus.png')}
           style={styles.FloatingButtonStyle}
         />
       </TouchableOpacity>    
-      <Modal/>
+      <ModalTask/>
     </Container>
   )
 }
 
 const styles = StyleSheet.create({
   TouchableOpacityStyle: {
-    position: 'absolute',
     width: 50,
     height: 50,
     alignItems: 'center',
@@ -37,6 +39,6 @@ const styles = StyleSheet.create({
   FloatingButtonStyle: {
     resizeMode: 'contain',
     width: 50,
-    height: 50
+    height: 50,
   },
 });
