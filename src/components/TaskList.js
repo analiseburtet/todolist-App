@@ -1,28 +1,25 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { FlatList, SafeAreaView, StyleSheet, Text, View } from "react-native";
 import { SubTitle } from './ComponentsLib'
 
-const DATA = [
-    { id: "00", task: "Buy food." },
-    { id: "01", task: "Call Nancy." },
-    { id: "02", task: "Feed dogs and cats." },
-    { id: "03", task: "Take some cat photos." }
-]
+function Item({ task }) {
+    return (
+        <View style={styles.item}>
+            <Text style={styles.text}>{task}</Text>
+        </View>
+    );
+}
 
-const TaskList = () => {
+const TaskList = ({ data }) => {
     return(
         <SafeAreaView>
             <SubTitle>TO DO</SubTitle>
             <FlatList
-            data={DATA}
-            keyExtractor={item => item.id}
-            renderItem={({ item }) => {
-                return (
-                <View style={styles.item}>
-                    <Text style={styles.text}>{item.task}</Text>
-                </View>
-                );
-            }}
+                data={data}
+                keyExtractor={item => item.id}
+                renderItem={({ item }) => (
+                    <Item task={item} />
+                )}
             />
         </SafeAreaView>
     )
