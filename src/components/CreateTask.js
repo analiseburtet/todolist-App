@@ -19,7 +19,7 @@ const CreateTask = ({ saveTask }) => {
                   alert('Please type task.')
                 }
                 else {
-                  let id = Moment()
+                  let id = Moment().unix()
                   saveTask( id, value)
                 }
                 }
