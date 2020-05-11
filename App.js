@@ -5,7 +5,6 @@ import Header from './src/components/Header'
 import CreateTask from './src/components/CreateTask'
 import TaskList from './src/components/TaskList'
 import DoneList from './src/components/DoneList'
-import Moment from 'moment'
 
 export default function App() {
   const [ data, setData] = useState([]);
@@ -23,7 +22,6 @@ export default function App() {
           JSON.parse(value)
       );
           if (retrievedData && retrievedData.length) {
-            console.log(retrievedData, 'data')
               setData(retrievedData);
           }
       };
