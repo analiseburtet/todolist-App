@@ -1,11 +1,16 @@
-import React, { useState, useEffect } from 'react'
-import { FlatList, SafeAreaView, StyleSheet, Text, View } from "react-native";
+import React from 'react'
+import { FlatList, SafeAreaView, StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
 import { SubTitle } from './ComponentsLib'
 
-function Item({ task }) {
+function Item({ task, id }) {
     return (
         <View style={styles.item}>
             <Text style={styles.text}>{task}</Text>
+            <TouchableOpacity>
+                <Image
+                    style={styles.button}
+                    source={require('../../assets/can.png')}/>
+            </TouchableOpacity>
         </View>
     );
 }
@@ -28,6 +33,10 @@ const TaskList = ({ data }) => {
 export default TaskList
 
 const styles = StyleSheet.create({
+    button: {
+        width: 30,
+        height: 30
+    },
     item: {
       alignItems: "flex-start",
       borderColor: "palevioletred",

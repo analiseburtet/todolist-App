@@ -7,12 +7,12 @@ import TaskList from './src/components/TaskList'
 import DoneList from './src/components/DoneList'
 
 export default function App() {
-  const [ data, setData] = useState([]);
+  const [ data, setData ] = useState([]);
   
   const saveTask = async (id, value) => {
     const unixTimestamp = id
     const finalValues = JSON.stringify({...value})
-    await AsyncStorage.setItem(unixTimestamp, JSON.stringify(finalValues));
+    await AsyncStorage.setItem(unixTimestamp, finalValues);
     setData([...data, finalValues]);
   };  
 

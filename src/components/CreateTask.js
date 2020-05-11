@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Container } from './ComponentsLib'
-import { TouchableOpacity, Text, TextInput, AsyncStorage, StyleSheet } from 'react-native'
+import { TouchableOpacity, Text, TextInput, StyleSheet } from 'react-native'
 import Moment from 'moment'
 
 const CreateTask = ({ saveTask }) => {
@@ -19,7 +19,7 @@ const CreateTask = ({ saveTask }) => {
                   alert('Please type task.')
                 }
                 else {
-                  let id = Moment().unix()
+                  let id = Moment().unix().toString()
                   saveTask( id, value)
                   onChangeText('')
                 }
