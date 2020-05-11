@@ -9,18 +9,27 @@ import Moment from 'moment'
 
 export default function App() {
   const [ data, setData] = useState([]);
-    
-    useEffect(() => {
-        const getData = async () => {
-        const retrievedData = (await displayData()).map(([, value]) =>
-            JSON.parse(value)
-        );
-            if (retrievedData && retrievedData.length) {
-                setData(retrievedData);
-            }
-        };
-        getData();
-    }, []);
+  
+  const saveTask = async (id, value) => {
+    const unixTimestamp = id
+    const finalValues = JSON.stringify({...value})
+    await AsyncStorage.setItem(unixTimestamp, JSON.stringify(finalValues));
+    setData([...data, finalValues]);
+  };  
+
+  useEffect(() => {
+      const getData = async () => {
+      const retrievedData = (await displayData()).map(([, value]) =>
+          JSON.parse(value)
+      );
+          if (retrievedData && retrievedData.length) {
+            console.log(retrievedData, 'data')
+              setData(retrievedData);
+          }
+      };
+      getData();
+  }, []);
+
   return(
     <Container main>
       <Header/>
@@ -30,31 +39,6 @@ export default function App() {
     </Container>
   )
 }
-
-const styles = StyleSheet.create({
-  TouchableOpacityStyle: {
-    width: 50,
-    height: 50,
-    alignItems: 'center',
-    justifyContent: 'center',
-    right: 30,
-    bottom: 30,
-  },
-  FloatingButtonStyle: {
-    resizeMode: 'contain',
-    width: 50,
-    height: 50,
-  },
-});
-
-const saveTask = async (id, value) => {
-  const unixTimestamp = Moment(id)
-    .unix()
-    .toString();
-  const finalValues = { ...value }
-  await AsyncStorage.setItem(unixTimestamp, JSON.stringify(value));
-  setData([...data, finalValues]);
-};
 
 const displayData = async () => {
   let objects = null;

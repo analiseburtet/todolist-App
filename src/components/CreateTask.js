@@ -21,6 +21,7 @@ const CreateTask = ({ saveTask }) => {
                 else {
                   let id = Moment().unix()
                   saveTask( id, value)
+                  onChangeText('')
                 }
                 }
               }
