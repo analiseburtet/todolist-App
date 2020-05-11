@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "todolist",
-    "slug": "todolist",
+    "name": "TODO List App",
+    "slug": "todo-list-app",
     "platforms": [
       "ios",
       "android",
@@ -24,7 +24,7 @@
     "ios": {
       "supportsTablet": true
     },
-    "description": "",
+    "description": "Simple todo list app.",
     "githubUrl": "https://github.com/analiseburtet/todolist-App"
   }
 }
