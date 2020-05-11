@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, AsyncStorage } from "react-native";
+import { AsyncStorage } from "react-native";
+
 import { Container } from "./src/components/ComponentsLib";
+
 import Header from "./src/components/Header";
 import CreateTask from "./src/components/CreateTask";
 import TaskList from "./src/components/TaskList";
@@ -68,17 +70,16 @@ export default function App() {
     <Container main>
       <Header />
       <CreateTask saveTask={saveTask} />
-      {/* open tasks */}
       <TaskList
         data={data.filter((task) => !task.done)}
         onDelete={deleteTask}
-        tag="OPEN TASKS"
+        tag='TODO'
         onDoneToggle={onDoneToggle}
       />
       <TaskList
         data={data.filter((task) => !!task.done)}
         onDelete={deleteTask}
-        tag="DONE TASKS"
+        tag='DONE'
         onDoneToggle={onDoneToggle}
       />
     </Container>

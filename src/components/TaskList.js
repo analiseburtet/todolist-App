@@ -8,18 +8,24 @@ import {
   TouchableOpacity,
   Image,
 } from "react-native";
-import { SubTitle } from "./ComponentsLib";
+import { SubTitle, Container } from "./ComponentsLib";
 
 function Item({ task, onDelete, onDoneToggle }) {
   return (
     <View style={styles.item} key={task.key}>
-      <Text style={styles.text}>{task.value}</Text>
-      <TouchableOpacity onPress={() => onDelete(task.key)}>
-        <Image style={styles.button} source={require("../../assets/can.png")} />
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => onDoneToggle(task)}>
-        <Text>{task.done ? "-X-" : "NOT DONE"}</Text>
-      </TouchableOpacity>
+      <Container item>
+        <TouchableOpacity onPress={() => onDoneToggle(task)}>
+          <Text>{task.done 
+            ? 
+              <Image style={styles.square} source={require('../../assets/checked.png')} /> 
+            :
+              <Image style={styles.square} source={require('../../assets/square.png')} />}</Text>
+        </TouchableOpacity>
+        <Text style={styles.text}>{task.value}</Text>
+        <TouchableOpacity onPress={() => onDelete(task.key)}>
+          <Image style={styles.button} source={require("../../assets/can.png")} />
+        </TouchableOpacity>
+      </Container>
     </View>
   );
 }
@@ -46,10 +52,12 @@ const styles = StyleSheet.create({
     width: 30,
     height: 30,
   },
+  square: {
+    width: 20,
+    height: 20
+  },
   item: {
     alignItems: "flex-start",
-    borderColor: "palevioletred",
-    borderWidth: 2,
     flexGrow: 1,
     marginLeft: 12,
     marginRight: 12,

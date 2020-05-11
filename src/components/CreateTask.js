@@ -5,18 +5,24 @@ import Moment from 'moment'
 
 const CreateTask = ({ saveTask }) => {
     const [ value, onChangeText ] = useState('')
+    const [ errorMessage, setErrorMessage ] = useState('')
+
     return (
         <Container modal>
+          <Container>
           <TextInput
+              placeholder='Type task here...'
               style={styles.input}
               onChangeText={text => onChangeText(text)}
               value={value}
           />
+          <Text style={styles.error}>{errorMessage}</Text>
+          </Container>
           <TouchableOpacity
               style={styles.button}
               onPress = { () => {
                 if(!value){
-                  alert('Please type task.')
+                  setErrorMessage('Required field.')
                 }
                 else {
                   let id = Moment().unix().toString()
@@ -26,7 +32,7 @@ const CreateTask = ({ saveTask }) => {
                 }
               }
           >
-            <Text>Save</Text>
+            <Text>Add</Text>
           </TouchableOpacity>
         </Container>
     )
@@ -46,6 +52,9 @@ const styles = StyleSheet.create({
     margin: 1,
     padding: 6,
     marginLeft: 10
+  },
+  error: {
+    color: 'red'
   }
 })
 

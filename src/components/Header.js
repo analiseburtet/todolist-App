@@ -1,6 +1,6 @@
 import React from 'react'
 import { Image, StyleSheet } from 'react-native'
-import { Container, Title, LogoImage } from './ComponentsLib'
+import { Container, Title } from './ComponentsLib'
 
 const Header = () => {
     return (
@@ -19,7 +19,7 @@ export default Header
 
 const styles = StyleSheet.create({
     logo: {
-        height: 45,
-        width: 45
+        height: 30,
+        width: 30
     }
 })
