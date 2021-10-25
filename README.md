@@ -8,7 +8,7 @@ React Native todo list App coded as an exercise to learn and practice react nati
 
 ## UI 
 
-It was developed using [styled-components](https://styled-components.com/) in order to learn this tool.
+Developed with [styled-components](https://styled-components.com/) in order to learn this tool.
 
 ![UI here](https://github.com/analiseburtet/todolist-App/blob/master/assets/todolist.png)
 
